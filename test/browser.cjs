@@ -13,7 +13,7 @@ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'
 try{
 await fs.mkdir(path.join(root,'.runtime/screenshots'),{recursive:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000}});page.setDefaultTimeout(15000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.goto(base);await page.getByRole('heading',{name:'지금, 주목할 영화'}).waitFor();
+await page.goto(base);await page.getByRole('heading',{name:'지금, 주목할 영화'}).waitFor();await page.locator('#sound-enable').waitFor();assert.equal(await page.evaluate(()=>LuminaSound.getState().enabled),false);
 await page.screenshot({path:path.join(root,'.runtime/screenshots/desktop.png'),fullPage:true});
 assert.equal(await page.locator('.poster-button img').evaluateAll(xs=>xs.every(x=>x.complete&&x.naturalWidth>0)),true);
 await page.getByRole('button',{name:'로그인',exact:true}).click();await page.locator('#switch-auth').click();

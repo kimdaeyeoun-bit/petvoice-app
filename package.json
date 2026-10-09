@@ -10,11 +10,12 @@
     "start": "node server.mjs",
     "dev": "node --watch server.mjs",
     "test": "node --test test/*.test.mjs",
-    "check": "node --check server.mjs && node --check public/app.js",
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/sound.js",
     "test:browser": "node test/browser.cjs",
     "preview:build": "node scripts/build-preview.mjs",
     "test:preview": "node test/preview.cjs",
-    "release:build": "npm run preview:build && node scripts/package-release.mjs"
+    "release:build": "npm run preview:build && node scripts/package-release.mjs",
+    "test:sound": "node test/sound.cjs"
   },
   "devDependencies": {
     "playwright": "^1.64.0"
