@@ -1,0 +1,9 @@
+node_modules/
+.runtime/
+*.log
+
+preview/*
+!preview/LUMINA-preview.html
+dist/*
+!dist/LUMINA-preview.zip
+!dist/LUMINA-render-source.zip

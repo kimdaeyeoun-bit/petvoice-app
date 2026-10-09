@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: lumina-ai-cinema
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.mjs
+    healthCheckPath: /api/health
+    autoDeployTrigger: off
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: DATA_DIR
+        value: /var/data/lumina
+    disk:
+      name: lumina-storage
+      mountPath: /var/data
+      sizeGB: 1
