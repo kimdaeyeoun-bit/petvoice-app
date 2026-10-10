@@ -16,6 +16,7 @@ for(const f of films){f.video=video;f.poster=await asset(f.poster.slice(1),'imag
 let css=await readFile(path.join(root,'public/style.css'),'utf8');for(const name of ['poster-2.svg','mark.svg'])css=css.replaceAll('/assets/'+name,await asset('assets/'+name,'image/svg+xml'));
 let html=await readFile(path.join(root,'public/index.html'),'utf8');
 html=html.replace('<link rel="stylesheet" href="/style.css">',`<style>${css}</style>`).replace('<script src="/app.js" defer></script>','').replace('<script src="/sound.js" defer></script>','').replace('<script src="/studio.js" defer></script>','').replace('<script src="/business.js" defer></script>','');
+html=html.replace('<script src="/install.js" defer></script>','').replace(/<link rel="(?:manifest|icon|apple-touch-icon)"[^>]*>/g,'').replace(/<div class="install-panel">[\s\S]*?<\/div>/,'');
 html=html.replace('<body>','<body><aside class="preview-notice">다운로드 미리보기 · 데이터는 이 브라우저에만 저장됩니다 · 실제 개인정보·비밀번호를 입력하지 마세요 · 결제는 데모입니다</aside>');
 html=html.replace('개발 데모 · 실제 결제 및 정산 없음','다운로드 미리보기 · 실제 결제 및 정산 없음');
 const business=await readFile(path.join(root,'public/business.js'),'utf8');
