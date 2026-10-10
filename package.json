@@ -10,7 +10,7 @@
     "start": "node server.mjs",
     "dev": "node --watch server.mjs",
     "test": "node --test test/*.test.mjs",
-    "check": "node --check server.mjs && node --check public/app.js && node --check public/sound.js && node --check public/studio.js && node --check studio-api.mjs",
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/sound.js && node --check public/studio.js && node --check studio-api.mjs && node --check public/business.js && node --check business-api.mjs && node --check business-core.mjs",
     "test:browser": "node test/browser.cjs",
     "preview:build": "node scripts/build-preview.mjs",
     "test:preview": "node test/preview.cjs",
