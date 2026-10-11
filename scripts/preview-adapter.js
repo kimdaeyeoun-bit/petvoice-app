@@ -19,6 +19,7 @@ window.fetch=(input,options={})=>{const p=String(input);if(!p.startsWith('/api/'
 if(p==='/api/studio/config')result={enabled:false,configured:false,allowed:false,reason:'다운로드 미리보기에서는 외부 AI 서비스에 연결하지 않습니다.',clipSeconds:[4,8,12]};
 else if(p==='/api/studio/projects'&&method==='GET'){const u=needUser();result={projects:session.projects.filter(p=>p.user_id===u.id)};}
 else if(p==='/api/studio/projects'&&method==='POST'){const u=needUser();if(!b.title||!Array.isArray(b.scenes)||!b.scenes.length||b.scenes.length>8)error('프로젝트를 확인해 주세요.');if(b.id&&!session.projects.some(p=>p.id===b.id&&p.user_id===u.id))error('프로젝트를 찾을 수 없습니다.',404);const id=b.id||crypto.randomUUID(),p={title:b.title,source:b.source,intent:b.intent,style:b.style,mood:b.mood,scenes:b.scenes,id,user_id:u.id,updated:new Date().toISOString()};session.projects=session.projects.filter(p=>p.id!==id);session.projects.push(p);result={project:p};}
+else if(p==='/api/studio/analyze')error('실제 이야기 분석은 API가 연결된 서버에서만 가능합니다. 자막 영상으로 대체하지 않습니다.',503);
 else if(p.startsWith('/api/studio/jobs'))error('AI 생성에는 배포 서버와 영상 서비스 연결이 필요합니다.',503);
 else if(p==='/api/me')result={user:viewUser(user())};
 else if(p==='/api/films'&&method==='GET')result={films:[...session.films].sort((a,b)=>b.featured-a.featured||b.id-a.id).map(decorate)};

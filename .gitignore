@@ -7,3 +7,6 @@ preview/*
 dist/*
 !dist/LUMINA-preview.zip
 !dist/LUMINA-render-source.zip
+
+.env
+.env.*
