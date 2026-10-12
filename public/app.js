@@ -2,7 +2,7 @@ const $=s=>document.querySelector(s), app=$('#app'), modal=$('#modal'),content=$
 let state={user:null,films:[],creators:[],genre:'전체',query:'',sort:'recommended',dashboardTab:'films'},renderVersion=0,toastTimer;
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=n=>Number(n).toLocaleString('ko-KR')+'원';
-async function api(url,options={}){const r=await fetch(url,{...options,headers:{...(options.body&&typeof options.body==='string'?{'Content-Type':'application/json'}:{}),...options.headers}});const b=await r.json();if(!r.ok)throw new Error(b.error||'요청에 실패했습니다.');return b;}
+async function api(url,options={}){const r=await fetch(url,{...options,headers:{...(options.body&&typeof options.body==='string'?{'Content-Type':'application/json'}:{}),...options.headers}});let b;try{b=await r.json();}catch{throw new Error(`서버에서 JSON 대신 웹 페이지가 반환되었습니다 (HTTP ${r.status}). 터널·서버 연결을 확인하고, 생성 기록 조회로 기존 요청 상태를 먼저 확인하세요.`);}if(!r.ok)throw new Error(b.error||'요청에 실패했습니다.');return b;}
 const post=(url,b={})=>api(url,{method:'POST',body:JSON.stringify(b)});
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('show');toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),4000);}
 function open(html){content.innerHTML=html;if(!modal.open)modal.showModal();}
