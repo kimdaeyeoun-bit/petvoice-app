@@ -9,7 +9,7 @@ from pathlib import Path
 from zipfile import ZipFile,ZIP_DEFLATED
 root=Path('.')
 with ZipFile('dist/LUMINA-render-source.zip','w',ZIP_DEFLATED) as z:
- for name in ['server.mjs','studio-api.mjs','cinematic-plan.mjs','business-api.mjs','business-core.mjs','package.json','package-lock.json','render.yaml','open-preview.bat','open-preview.command','README.md','DEPLOY.md','.gitignore','public','scripts','test']:
+ for name in ['server.mjs','studio-api.mjs','cinematic-plan.mjs','runway-video.mjs','business-api.mjs','business-core.mjs','package.json','package-lock.json','render.yaml','open-preview.bat','open-preview.command','README.md','DEPLOY.md','.gitignore','public','scripts','test']:
   p=root/name
   if p.is_file(): z.write(p, 'lumina/'+str(p))
   else:

@@ -1,3 +1,5 @@
+> **2026-10-14 영상 연결 변경:** OpenAI 공식 SDK에 Sora API의 2026-09-24 영구 종료가 명시되어 있습니다. 아래 과거 Sora 생성·진단 설명은 현재 운영에 적용하지 않습니다. 글 분석은 OpenAI, 실제 영상 생성은 Runway Gen-4.5를 사용합니다.
+
 # LUMINA 미리보기와 Render 배포
 
 ## GitHub에서 컴퓨터에 저장하기
@@ -71,3 +73,13 @@ Cloudflare Quick Tunnel의 임시 주소는 다시 실행하면 바뀔 수 있�
 ### 404 원인 확인
 
 `AI 연결 진단 · 영상 생성 없음`은 허용된 로그인 계정에서 OpenAI의 `/models/sora-2`를 조회합니다. 영상 생성 요청은 보내지 않습니다. 모델 조회가 성공해도 영상 엔드포인트 접근, 결제 잔액, 실제 생성 가능 여부까지 검증되는 것은 아닙니다. 오류 시 공급자 HTTP 상태·코드·설명을 표시하고 키 문자열은 마스킹합니다. `model_not_found` 또는 접근 불가인 경우 운영 프로젝트의 모델 접근 권한과 공급자 최신 영상 API 지원 여부를 확인하세요. 본 진단은 모의 응답으로 테스트했으며 실제 운영 계정 접근 가능 여부는 사용자가 서버에서 확인해야 합니다.
+
+## 현재 영상 제작 설정: OpenAI 글 분석 + Runway 영상
+
+공식 근거: https://github.com/openai/openai-node/blob/master/src/resources/videos.ts 에 Sora API 종료 일정이 명시되어 있습니다. Runway 요청 형식은 https://github.com/runwayml/sdk-node/blob/main/src/resources/text-to-video.ts 및 tasks.ts, organization/organization.ts를 확인했습니다.
+
+윈도우 서버의 `.env`에 기존 OpenAI `VIDEO_API_KEY`는 글 분석용으로 유지하고, `RUNWAY_API_KEY`를 추가하세요. `VIDEO_GENERATION_ENABLED=1`, `VIDEO_ALLOWED_EMAILS=작가의 LUMINA 로그인 이메일`, `VIDEO_DAILY_LIMIT=3`을 유지합니다. Runway API 키·API 크레딧은 Runway 개발자 계정에서 별도로 준비해야 합니다. ChatGPT 구독이나 일반 Runway 웹 구독이 API 사용료를 포함한다고 가정하지 마세요.
+
+Runway 공식 API 문서: https://docs.dev.runwayml.com/ . 현재 연결은 `POST /v1/text_to_video`, 모델 `gen4.5`, 1280:720, 선택한 장면당 4/8초이며 `X-Runway-Version: 2024-11-06`을 사용합니다. 원문 전체는 글 분석 API에 보내고, 영상에는 1,000자 이내의 장면·캐릭터 프롬프트를 보냅니다. 기존 Sora 실패 요청은 Runway 하루 한도에서 제외합니다. 생성 중에는 `/v1/tasks/{id}`를 조회하고 성공 결과를 서버 비공개 MP4로 보관합니다. 작가 승인 전 공개하지 않습니다.
+
+AI 연결 진단은 Runway `/v1/organization`의 읽기 조회를 사용하며 영상 생성 요청을 보내지 않습니다. 키가 없거나 권한·API 크레딧이 없으면 실제 생성은 진행할 수 없습니다. 테스트는 모의 공급자로 수행했으며 운영 계정으로 생성된 작품의 품질을 검증한 것은 아닙니다. 과거 Sora 작업은 서비스 종료 때문에 새로 조회·생성하지 않습니다. 이미 서버에 저장된 완료 영상은 남아 있습니다.
