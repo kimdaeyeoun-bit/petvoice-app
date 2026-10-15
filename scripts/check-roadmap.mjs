@@ -1,0 +1,4 @@
+import {readFile,access} from 'node:fs/promises';
+const r=JSON.parse(await readFile('public/roadmap.json','utf8')),md=await readFile('ROADMAP.md','utf8'),ids=new Set();
+for(const item of r.items){if(ids.has(item.id)||!['done','pending','verify'].includes(item.status)||!r.phases.some(p=>p.id===item.phase)||!item.acceptance||!md.includes('**'+item.id+' '))throw Error('Invalid roadmap item '+item.id);ids.add(item.id);if(item.status==='done'){if(!item.evidence)throw Error('Missing evidence '+item.id);await access(item.evidence);}else if(!item.dependency)throw Error('Missing dependency '+item.id);}
+console.log(`Roadmap PASS: ${r.items.length} requirements; ${r.items.filter(i=>i.status==='done').length} implemented, ${r.items.filter(i=>i.status==='verify').length} need operational verification, ${r.items.filter(i=>i.status==='pending').length} scheduled. Source evidence exists; actual tests must still pass.`);

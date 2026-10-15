@@ -1,0 +1,32 @@
+name: LUMINA quality checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run roadmap:check
+      - run: npm run check
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - name: Select browser
+        run: node -e "require('fs').appendFileSync(process.env.GITHUB_ENV, 'CHROMIUM_PATH='+require('playwright').chromium.executablePath()+'\n')"
+      - run: npm run release:build
+      - run: npm run test:community
+      - run: npm run test:cinema
+      - run: npm run test:preview

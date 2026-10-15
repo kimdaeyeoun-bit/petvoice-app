@@ -1,0 +1,535 @@
+{
+  "updated": "2026-10-15",
+  "phases": [
+    {
+      "id": "P1",
+      "title": "콘텐츠를 쉽게 올리는 기반"
+    },
+    {
+      "id": "P2",
+      "title": "독자가 돌아오는 읽기 경험"
+    },
+    {
+      "id": "P3",
+      "title": "창작자의 홍보와 작품 확장"
+    },
+    {
+      "id": "P4",
+      "title": "신뢰·운영·안정성"
+    },
+    {
+      "id": "P5",
+      "title": "AI 제작·결제·영화제의 고도화"
+    },
+    {
+      "id": "P6",
+      "title": "초기 유입·반복 이용·사업 검증"
+    }
+  ],
+  "items": [
+    {
+      "id": "C01",
+      "phase": "P1",
+      "title": "무료 원작 등록",
+      "status": "done",
+      "acceptance": "영상이나 AI 상품 구매 없이 소설·시·시나리오·에세이·웹툰·만화를 등록한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "C02",
+      "phase": "P1",
+      "title": "공개·비공개 분리",
+      "status": "done",
+      "acceptance": "비공개 작품·회차는 작성자와 운영자만 볼 수 있다. 원문 공개는 작가가 선택한다.",
+      "evidence": "test/community.test.mjs"
+    },
+    {
+      "id": "C03",
+      "phase": "P1",
+      "title": "연재·초안·수정·완결",
+      "status": "done",
+      "acceptance": "회차 작성·수정·임시 저장·공개 전환·완결 표시를 제공한다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "C04",
+      "phase": "P1",
+      "title": "직접 표지 등록과 기본 표지",
+      "status": "done",
+      "acceptance": "표지 이미지 업로드 또는 HTTPS 주소를 사용하고 없으면 제목 중심 기본 표지를 표시한다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "C05",
+      "phase": "P1",
+      "title": "만화 컷·글 함께 등록",
+      "status": "done",
+      "acceptance": "회차에 이미지와 글을 함께 등록하고 세로 읽기를 제공한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "C06",
+      "phase": "P1",
+      "title": "검색·형식 필터·페이지 이동",
+      "status": "done",
+      "acceptance": "제목·작가·태그 검색과 형식·추천 필터, 24개 단위 페이지를 제공한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "C07",
+      "phase": "P1",
+      "title": "대량 가져오기",
+      "status": "pending",
+      "acceptance": "작가 소유 원문 ZIP/CSV를 검증·미리보기한 뒤 중복 없이 가져온다.",
+      "dependency": "가져오기 포맷·권리 확인 설계"
+    },
+    {
+      "id": "C08",
+      "phase": "P1",
+      "title": "저장 공간 확장",
+      "status": "pending",
+      "acceptance": "실제 이용량에 맞춰 이미지 파일·객체 저장소와 작품별 DB 테이블로 이전한다.",
+      "dependency": "부하 측정·저장 예산"
+    },
+    {
+      "id": "C09",
+      "phase": "P1",
+      "title": "기존 영화·음악·제작실 유지",
+      "status": "done",
+      "acceptance": "로그인·상영·투표·스토리보드·제작 관리의 기존 기능을 유지한다.",
+      "evidence": "test/preview.cjs"
+    },
+    {
+      "id": "R01",
+      "phase": "P2",
+      "title": "내 책장",
+      "status": "done",
+      "acceptance": "작품 저장·해제와 로그인 계정별 책장을 제공한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "R02",
+      "phase": "P2",
+      "title": "이어 읽기",
+      "status": "done",
+      "acceptance": "회차와 읽기 위치를 서버에 저장하고 작품에서 이어 읽는다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "R03",
+      "phase": "P2",
+      "title": "읽기 화면",
+      "status": "done",
+      "acceptance": "글자 크기 조정·만화 이미지·이전/다음 회차 이동을 제공한다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "R04",
+      "phase": "P2",
+      "title": "작가 팔로우",
+      "status": "done",
+      "acceptance": "팔로우·해제하고 작가별 공개 작품을 탐색한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "R05",
+      "phase": "P2",
+      "title": "새 작품·새 회차 알림",
+      "status": "done",
+      "acceptance": "팔로우한 작가의 공개 작품·새 회차를 사이트 안에서 알리고 읽음 처리한다.",
+      "evidence": "test/community.test.mjs"
+    },
+    {
+      "id": "R06",
+      "phase": "P2",
+      "title": "감상평·삭제·신고",
+      "status": "done",
+      "acceptance": "공개 작품에 감상평을 남기고 본인 삭제·신고가 가능하다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "R07",
+      "phase": "P2",
+      "title": "기기 간 읽기 동기화",
+      "status": "done",
+      "acceptance": "같은 고정 주소·계정으로 로그인하면 서버에 저장된 위치를 조회한다.",
+      "evidence": "community-api.mjs"
+    },
+    {
+      "id": "R08",
+      "phase": "P2",
+      "title": "이메일·푸시 알림",
+      "status": "pending",
+      "acceptance": "수신 동의·해지·전송 실패 처리를 갖춘 외부 알림을 연결한다.",
+      "dependency": "고정 HTTPS 도메인·알림 공급자"
+    },
+    {
+      "id": "R09",
+      "phase": "P2",
+      "title": "개인화 추천",
+      "status": "pending",
+      "acceptance": "장르·책장·읽기 반응에 근거해 추천하고 개인정보 범위를 안내한다.",
+      "dependency": "충분한 실제 이용 기록"
+    },
+    {
+      "id": "R10",
+      "phase": "P2",
+      "title": "독자 참여 혜택",
+      "status": "pending",
+      "acceptance": "실제 운영 가능한 시사회·작가 대화·참여 혜택을 설계하고 조건을 공개한다.",
+      "dependency": "운영 인력·일정·재원"
+    },
+    {
+      "id": "A01",
+      "phase": "P3",
+      "title": "원작 중심 통합 작품 페이지",
+      "status": "done",
+      "acceptance": "원문·만화 회차·소개 영상·본인 출품 영화를 하나의 작품에 연결한다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "A02",
+      "phase": "P3",
+      "title": "공개 창작자 페이지",
+      "status": "done",
+      "acceptance": "소개·공개 작품·팔로워·팔로우를 제공하고 이메일은 공개하지 않는다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "A03",
+      "phase": "P3",
+      "title": "홍보용 주소·소개 문구",
+      "status": "done",
+      "acceptance": "작품 주소 복사와 작가 크레딧을 포함한 홍보 문구 다운로드를 제공한다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "A04",
+      "phase": "P3",
+      "title": "편집부 추천",
+      "status": "done",
+      "acceptance": "운영자가 선정 이유와 함께 추천하고 영화제 수상과 구분한다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "A05",
+      "phase": "P3",
+      "title": "창작자 작업실·기초 통계",
+      "status": "done",
+      "acceptance": "등록 작품·팔로워·로그인 독자·감상평을 확인한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "A06",
+      "phase": "P3",
+      "title": "원작 백업 다운로드",
+      "status": "done",
+      "acceptance": "작가가 자기 작품·회차를 JSON으로 내려받는다.",
+      "evidence": "public/community.js"
+    },
+    {
+      "id": "A07",
+      "phase": "P3",
+      "title": "협업 모집·제작자 크레딧",
+      "status": "pending",
+      "acceptance": "작가·그림·음악·편집 기여와 협업 역할을 기록한다.",
+      "dependency": "권리·기여·분쟁 정책"
+    },
+    {
+      "id": "A08",
+      "phase": "P3",
+      "title": "홍보 카드 이미지·자동 예고편 패키지",
+      "status": "pending",
+      "acceptance": "실제 작품 자료로 세로·가로 홍보물을 만들고 작가가 승인한다.",
+      "dependency": "이미지·영상 생성 공급자와 예산"
+    },
+    {
+      "id": "A09",
+      "phase": "P3",
+      "title": "검색엔진·공유 미리보기",
+      "status": "pending",
+      "acceptance": "고정 작품 URL과 서버 렌더링 메타데이터·사이트맵을 제공한다.",
+      "dependency": "고정 도메인·서버 렌더링"
+    },
+    {
+      "id": "A10",
+      "phase": "P3",
+      "title": "외부 공유 성과 추적",
+      "status": "pending",
+      "acceptance": "유입 링크에서 실제 읽기·팔로우 전환을 측정한다.",
+      "dependency": "동의·보존 정책·이벤트 검증"
+    },
+    {
+      "id": "O01",
+      "phase": "P4",
+      "title": "운영자 콘텐츠 검토",
+      "status": "done",
+      "acceptance": "ADMIN_USER_IDS로만 작품 숨김·복원·추천을 수행한다.",
+      "evidence": "community-api.mjs"
+    },
+    {
+      "id": "O02",
+      "phase": "P4",
+      "title": "신고·권리 문의 접수",
+      "status": "done",
+      "acceptance": "신고 대상·사유를 비공개 접수하고 처리 상태를 기록한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "O03",
+      "phase": "P4",
+      "title": "운영 감사 기록",
+      "status": "done",
+      "acceptance": "작품 수정·신고·숨김·추천 작업을 기록한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "O04",
+      "phase": "P4",
+      "title": "반복 이용 기초 지표",
+      "status": "done",
+      "acceptance": "7일 로그인 방문·서로 다른 날 재방문·공개 회차 2개 이상 창작자를 집계한다.",
+      "evidence": "community-core.mjs"
+    },
+    {
+      "id": "O05",
+      "phase": "P4",
+      "title": "서버 상태 확인",
+      "status": "done",
+      "acceptance": "DB를 확인하는 /api/health를 제공한다.",
+      "evidence": "server.mjs"
+    },
+    {
+      "id": "O06",
+      "phase": "P4",
+      "title": "윈도우 수동 백업 안내",
+      "status": "done",
+      "acceptance": "서버 중지 후 .runtime 백업과 복구 순서를 문서화한다.",
+      "evidence": "OPERATIONS.md"
+    },
+    {
+      "id": "O07",
+      "phase": "P4",
+      "title": "자동 백업·복구 훈련",
+      "status": "pending",
+      "acceptance": "DB 일관성을 지키는 자동 백업과 외부 사본, 실제 복구 훈련을 완료한다.",
+      "dependency": "저장소·보존 정책·복구 시험"
+    },
+    {
+      "id": "O08",
+      "phase": "P4",
+      "title": "고정 주소·자동 시작",
+      "status": "pending",
+      "acceptance": "도메인·Named Tunnel·부팅 시 서비스 자동 실행을 검증한다.",
+      "dependency": "집 서버 원격 설정 필요"
+    },
+    {
+      "id": "O09",
+      "phase": "P4",
+      "title": "상시 장애 감시",
+      "status": "pending",
+      "acceptance": "외부 헬스체크·오류 알림·장애 대응 담당을 연결한다.",
+      "dependency": "모니터링 공급자·수신 동의"
+    },
+    {
+      "id": "O10",
+      "phase": "P4",
+      "title": "개인정보·약관·저작권·등급",
+      "status": "pending",
+      "acceptance": "실제 운영 주체·보존·삭제·성인 콘텐츠·분쟁 처리 기준을 확정한다.",
+      "dependency": "운영자 정책·법률 검토"
+    },
+    {
+      "id": "O11",
+      "phase": "P4",
+      "title": "대용량·보안·접근성 검증",
+      "status": "pending",
+      "acceptance": "실사용 목표 부하와 악용 방지·차단·접근성 검사를 수행한다.",
+      "dependency": "목표 이용 규모·실제 환경"
+    },
+    {
+      "id": "O12",
+      "phase": "P4",
+      "title": "운영 단계표와 검증 스크립트",
+      "status": "done",
+      "acceptance": "모든 요구사항을 상태·완료 기준·증거 파일로 추적하고 빌드 전 검사한다.",
+      "evidence": "scripts/check-roadmap.mjs"
+    },
+    {
+      "id": "B01",
+      "phase": "P5",
+      "title": "원문 AI 분석·캐릭터 설정",
+      "status": "done",
+      "acceptance": "원문 분석·외형/성격 수정·장면 승인 흐름이 작동한다.",
+      "evidence": "test/cinematic-browser.cjs"
+    },
+    {
+      "id": "B02",
+      "phase": "P5",
+      "title": "Runway 실계정 영상 생성",
+      "status": "verify",
+      "acceptance": "실제 키·API 크레딧으로 4초 클립의 성공·비용·품질을 확인한다.",
+      "dependency": "RUNWAY_API_KEY·API 크레딧 필요; 모의 API만 검증"
+    },
+    {
+      "id": "B03",
+      "phase": "P5",
+      "title": "대표 이미지 AI 생성",
+      "status": "pending",
+      "acceptance": "작품 요약·캐릭터로 표지를 생성하고 비용 동의·선택·재생성을 제공한다.",
+      "dependency": "이미지 API·비용 한도"
+    },
+    {
+      "id": "B04",
+      "phase": "P5",
+      "title": "캐릭터 참고 이미지 일관성",
+      "status": "pending",
+      "acceptance": "확정 이미지를 영상·웹툰에서 참고하고 인물 유지 품질을 검수한다.",
+      "dependency": "이미지→영상 모델·공급자 API 검증"
+    },
+    {
+      "id": "B05",
+      "phase": "P5",
+      "title": "웹툰 자동 컷 제작·식자",
+      "status": "pending",
+      "acceptance": "컷 구성·인물·대사·말풍선을 만들고 컷별 작가 승인을 받는다.",
+      "dependency": "이미지 생성·편집·글자 검수"
+    },
+    {
+      "id": "B06",
+      "phase": "P5",
+      "title": "책 PDF·EPUB 제작",
+      "status": "pending",
+      "acceptance": "작가 승인 원문으로 표지·목차·판권·전자책 출력을 검증한다.",
+      "dependency": "포맷·서체 이용 권리"
+    },
+    {
+      "id": "B07",
+      "phase": "P5",
+      "title": "영화 장면 연결·대사·음악",
+      "status": "pending",
+      "acceptance": "장면 편집·음성·음악·자막 선택·완성본을 검수한다.",
+      "dependency": "렌더링 파이프라인·음원 권리"
+    },
+    {
+      "id": "B08",
+      "phase": "P5",
+      "title": "관리자 제작·작가 승인",
+      "status": "done",
+      "acceptance": "선정·예고편·견적·본편·최종 승인을 데모로 진행한다.",
+      "evidence": "test/business-api.test.mjs"
+    },
+    {
+      "id": "B09",
+      "phase": "P5",
+      "title": "수익 적립·최소 지급 데모",
+      "status": "done",
+      "acceptance": "80% 배분·확정·5만원 지급 신청·예약·중복 방지를 검증한다.",
+      "evidence": "test/business.test.mjs"
+    },
+    {
+      "id": "B10",
+      "phase": "P5",
+      "title": "실제 결제·환불·정산",
+      "status": "pending",
+      "acceptance": "검증된 결제 웹훅·수수료·세금·본인 확인·실제 지급을 검증한다.",
+      "dependency": "결제·지급 공급자 계약"
+    },
+    {
+      "id": "B11",
+      "phase": "P5",
+      "title": "제작 옵션·요금제 견적",
+      "status": "pending",
+      "acceptance": "이미지·예고편·본편·웹툰·책을 범위·횟수·수정 조건별 견적으로 제공한다.",
+      "dependency": "실제 원가·가격표 검증"
+    },
+    {
+      "id": "B12",
+      "phase": "P5",
+      "title": "공식 영화제 운영",
+      "status": "pending",
+      "acceptance": "일정·규정·심사위원·평가·이의제기·수상 기록을 실제 운영한다.",
+      "dependency": "심사 인력·예산·협력기관"
+    },
+    {
+      "id": "B13",
+      "phase": "P5",
+      "title": "상시 출품·관객 투표",
+      "status": "done",
+      "acceptance": "기존 상영관과 무료 출품·작품별 투표를 유지한다.",
+      "evidence": "test/platform.test.mjs"
+    },
+    {
+      "id": "B14",
+      "phase": "P5",
+      "title": "연재 유료화·묶음 판매",
+      "status": "pending",
+      "acceptance": "영화·책·웹툰 구매 권한과 환불·열람 기록을 일관되게 처리한다.",
+      "dependency": "실결제·콘텐츠 권한 설계"
+    },
+    {
+      "id": "G01",
+      "phase": "P6",
+      "title": "초기 작가 모집·동의",
+      "status": "pending",
+      "acceptance": "작가 10명 내외와 권리·홍보 동의를 확인하고 실제 첫 작품을 확보한다.",
+      "dependency": "운영자 모집 실행"
+    },
+    {
+      "id": "G02",
+      "phase": "P6",
+      "title": "주간 작품 소개·인터뷰",
+      "status": "pending",
+      "acceptance": "권리 확인 작품을 정기 소개하고 작가 승인 홍보물을 발행한다.",
+      "dependency": "운영 일정·작가 동의"
+    },
+    {
+      "id": "G03",
+      "phase": "P6",
+      "title": "숏폼→원작 유입 실험",
+      "status": "pending",
+      "acceptance": "문장→장면 소재로 쇼츠·틱톡 등에서 작품 페이지 전환을 검증한다.",
+      "dependency": "실제 제작물·게시 권한·유입 측정"
+    },
+    {
+      "id": "G04",
+      "phase": "P6",
+      "title": "월간 온라인 상영회",
+      "status": "pending",
+      "acceptance": "실제 작품·상영 권리·진행자·일정을 확보하고 개최한다.",
+      "dependency": "작가·상영작·운영 예산"
+    },
+    {
+      "id": "G05",
+      "phase": "P6",
+      "title": "가입→등록→재등록 지표",
+      "status": "pending",
+      "acceptance": "방문·가입·등록·후속 등록의 전환을 계정·기간별로 검증한다.",
+      "dependency": "동의 기반 이벤트 설계"
+    },
+    {
+      "id": "G06",
+      "phase": "P6",
+      "title": "작품 원가·채택률·재구매",
+      "status": "pending",
+      "acceptance": "생성 시도·편집 시간·매출·환불을 실제 데이터로 비교한다.",
+      "dependency": "실제 제작·결제 표본"
+    },
+    {
+      "id": "G07",
+      "phase": "P6",
+      "title": "운영·홍보 실행 매뉴얼",
+      "status": "done",
+      "acceptance": "주간 실행·장애·백업·신고 처리·점검 순서를 문서화한다.",
+      "evidence": "OPERATIONS.md"
+    },
+    {
+      "id": "G08",
+      "phase": "P6",
+      "title": "타 플랫폼 경쟁 검토 갱신",
+      "status": "verify",
+      "acceptance": "Wattpad·WEBTOON·포스타입·FilmFreeway·영상 AI의 실제 현행 조건을 정기 확인한다.",
+      "dependency": "최신 공식 정보·운영자 확인 필요"
+    }
+  ]
+}

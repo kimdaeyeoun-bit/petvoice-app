@@ -83,3 +83,7 @@ Cloudflare Quick Tunnel의 임시 주소는 다시 실행하면 바뀔 수 있�
 Runway 공식 API 문서: https://docs.dev.runwayml.com/ . 현재 연결은 `POST /v1/text_to_video`, 모델 `gen4.5`, 1280:720, 선택한 장면당 4/8초이며 `X-Runway-Version: 2024-11-06`을 사용합니다. 원문 전체는 글 분석 API에 보내고, 영상에는 1,000자 이내의 장면·캐릭터 프롬프트를 보냅니다. 기존 Sora 실패 요청은 Runway 하루 한도에서 제외합니다. 생성 중에는 `/v1/tasks/{id}`를 조회하고 성공 결과를 서버 비공개 MP4로 보관합니다. 작가 승인 전 공개하지 않습니다.
 
 AI 연결 진단은 Runway `/v1/organization`의 읽기 조회를 사용하며 영상 생성 요청을 보내지 않습니다. 키가 없거나 권한·API 크레딧이 없으면 실제 생성은 진행할 수 없습니다. 테스트는 모의 공급자로 수행했으며 운영 계정으로 생성된 작품의 품질을 검증한 것은 아닙니다. 과거 Sora 작업은 서비스 종료 때문에 새로 조회·생성하지 않습니다. 이미 서버에 저장된 완료 영상은 남아 있습니다.
+
+## 원작·연재 기능 업데이트
+
+이번 버전에는 `community-api.mjs`, `community-core.mjs`, `public/community.js`, `public/roadmap.json`이 추가되었습니다. 기존 서버를 중지하고 `.env`·`.runtime`을 백업·유지한 채 새 소스를 덮어쓴 다음 `node --env-file=.env server.mjs`로 실행하세요. 원작·회차·책장·읽기 위치·알림·신고는 기존 cinema.sqlite의 community_state에 저장됩니다. 관리자 권한은 기존 `ADMIN_USER_IDS`를 사용합니다. 상세 한도·기초 통계 정의·복구·홍보 순서는 OPERATIONS.md를 확인하세요.
