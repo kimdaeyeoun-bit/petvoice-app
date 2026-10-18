@@ -20,7 +20,8 @@
     "test:install": "node test/install.cjs",
     "test:cinema": "node test/cinematic-browser.cjs",
     "roadmap:check": "node scripts/check-roadmap.mjs",
-    "test:community": "node test/community-browser.cjs && node test/community-browser.cjs --preview"
+    "test:community": "node test/community-browser.cjs && node test/community-browser.cjs --preview",
+    "account:reset": "node scripts/reset-password.mjs"
   },
   "devDependencies": {
     "playwright": "^1.64.0"
