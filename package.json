@@ -21,7 +21,8 @@
     "test:cinema": "node test/cinematic-browser.cjs",
     "roadmap:check": "node scripts/check-roadmap.mjs",
     "test:community": "node test/community-browser.cjs && node test/community-browser.cjs --preview",
-    "account:reset": "node scripts/reset-password.mjs"
+    "account:reset": "node scripts/reset-password.mjs",
+    "test:planning-board": "node test/planning-board-browser.cjs"
   },
   "devDependencies": {
     "playwright": "^1.64.0"
