@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-10-20",
   "phases": [
     {
       "id": "P1",
@@ -383,9 +383,9 @@
       "id": "B04",
       "phase": "P5",
       "title": "캐릭터 참고 이미지 일관성",
-      "status": "pending",
+      "status": "verify",
       "acceptance": "확정 이미지를 영상·웹툰에서 참고하고 인물 유지 품질을 검수한다.",
-      "dependency": "이미지→영상 모델·공급자 API 검증"
+      "dependency": "참고 이미지 입력·Runway API 전달은 구현·모의 검증 완료. 실계정에서 인물 유지 품질을 확인해야 함."
     },
     {
       "id": "B05",
@@ -393,7 +393,7 @@
       "title": "웹툰 자동 컷 제작·식자",
       "status": "pending",
       "acceptance": "컷 구성·인물·대사·말풍선을 만들고 컷별 작가 승인을 받는다.",
-      "dependency": "이미지 생성·편집·글자 검수"
+      "dependency": "만화컷 이미지 생성·원작 비공개 회차 저장은 구현. 말풍선·식자·긴 연재 자동 제작은 미완료."
     },
     {
       "id": "B06",
@@ -530,6 +530,54 @@
       "status": "verify",
       "acceptance": "Wattpad·WEBTOON·포스타입·FilmFreeway·영상 AI의 실제 현행 조건을 정기 확인한다.",
       "dependency": "최신 공식 정보·운영자 확인 필요"
+    },
+    {
+      "id": "A11",
+      "phase": "P3",
+      "title": "파노라마 목록·이미지 확대",
+      "status": "done",
+      "acceptance": "원작을 넓은 가로 목록·격자로 전환하고 만화 이미지를 확대 감상한다.",
+      "evidence": "test/community-browser.cjs"
+    },
+    {
+      "id": "A12",
+      "phase": "P3",
+      "title": "긴 오리지널 배경음악",
+      "status": "done",
+      "acceptance": "3분 12초 구성의 순환곡을 재생하고 영상 감상 중에는 음악을 멈춘다.",
+      "evidence": "test/sound.cjs"
+    },
+    {
+      "id": "B15",
+      "phase": "P5",
+      "title": "등록 원작에서 바로 제작",
+      "status": "done",
+      "acceptance": "원작 회차를 재입력하지 않고 영화·애니메이션·만화컷 제작실로 연결한다. 긴 원문은 구간을 선택하며 원본은 보존한다.",
+      "evidence": "test/community-browser.cjs"
+    },
+    {
+      "id": "B16",
+      "phase": "P5",
+      "title": "참고 이미지 기반 생성 요청",
+      "status": "done",
+      "acceptance": "참고 파일·HTTPS 이미지를 영상 시작 프레임 또는 만화 이미지 참고로 전달한다.",
+      "evidence": "test/reference-media.test.mjs"
+    },
+    {
+      "id": "B17",
+      "phase": "P5",
+      "title": "만화컷 생성·승인·원작 저장",
+      "status": "done",
+      "acceptance": "모의 공급자로 만화컷 생성·비공개 결과·작가 승인·원작의 비공개 회차 저장을 검증한다. 실제 생성 품질은 별도 확인한다.",
+      "evidence": "test/cinematic-browser.cjs"
+    },
+    {
+      "id": "B18",
+      "phase": "P5",
+      "title": "생성 한도·잔액·연속 감상",
+      "status": "done",
+      "acceptance": "Runway 잔액·24시간 요청 한도·4/6/8/10초 선택을 제공하고 기존 클립을 새 생성 없이 연속 감상한다. 합본 파일 출력은 미지원이다.",
+      "evidence": "test/reference-media.test.mjs"
     }
   ]
 }
