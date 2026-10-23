@@ -10,7 +10,7 @@
     "start": "node server.mjs",
     "dev": "node --watch server.mjs",
     "test": "node --test test/*.test.mjs",
-    "check": "node --check server.mjs && node --check public/app.js && node --check public/sound.js && node --check public/studio.js && node --check studio-api.mjs && node --check public/business.js && node --check business-api.mjs && node --check business-core.mjs && node --check public/install.js && node --check public/sw.js && node --check cinematic-plan.mjs && node --check runway-video.mjs && node --check community-api.mjs && node --check community-core.mjs && node --check public/community.js",
+    "check": "node --check server.mjs && node --check public/app.js && node --check public/sound.js && node --check public/studio.js && node --check studio-api.mjs && node --check public/business.js && node --check business-api.mjs && node --check business-core.mjs && node --check public/install.js && node --check public/sw.js && node --check cinematic-plan.mjs && node --check runway-video.mjs && node --check community-api.mjs && node --check community-core.mjs && node --check public/community.js && node --check public/creative-tools.js && node --check studio-audio.mjs",
     "test:browser": "node test/browser.cjs",
     "preview:build": "node scripts/build-preview.mjs",
     "test:preview": "node test/preview.cjs",
@@ -22,7 +22,8 @@
     "roadmap:check": "node scripts/check-roadmap.mjs",
     "test:community": "node test/community-browser.cjs && node test/community-browser.cjs --preview",
     "account:reset": "node scripts/reset-password.mjs",
-    "test:planning-board": "node test/planning-board-browser.cjs"
+    "test:planning-board": "node test/planning-board-browser.cjs",
+    "test:creative": "node test/creative-tools-browser.cjs"
   },
   "devDependencies": {
     "playwright": "^1.64.0"

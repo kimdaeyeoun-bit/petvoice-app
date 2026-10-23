@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-23",
   "phases": [
     {
       "id": "P1",
@@ -408,7 +408,7 @@
       "phase": "P5",
       "title": "영화 장면 연결·대사·음악",
       "status": "pending",
-      "acceptance": "장면 편집·음성·음악·자막 선택·완성본을 검수한다.",
+      "acceptance": "장면 편집·대사 연기·음악·완성본을 검수한다. 개별 클립의 음악·내레이션 합본은 B22에서 구현했으며 여러 장면 자동 편집·립싱크는 후속 단계다.",
       "dependency": "렌더링 파이프라인·음원 권리"
     },
     {
@@ -594,6 +594,46 @@
       "status": "verify",
       "acceptance": "운영자의 실제 원작으로 인물 유지·장면 충실도·이미지 글자·생성 비용·권한·완료 시간을 확인한다.",
       "dependency": "운영자 OpenAI 이미지 모델 권한·유료 API 크레딧·결과 검수"
+    },
+    {
+      "id": "B21",
+      "phase": "P5",
+      "title": "개인 ChatGPT 캐릭터 작업 연결",
+      "status": "done",
+      "acceptance": "API 없이 수동 인물을 추가하고 캐릭터별 명령어 복사·ChatGPT 열기·이미지 파일 가져오기·초안 보관·제작 참고 선택을 제공한다. ChatGPT 대화 자동 조작은 하지 않는다.",
+      "evidence": "test/creative-tools-browser.cjs"
+    },
+    {
+      "id": "R11",
+      "phase": "P2",
+      "title": "만화책 펼치기·페이지 이어 읽기",
+      "status": "done",
+      "acceptance": "만화·웹툰을 양면 또는 한 페이지로 펼치고 버튼·키보드·스와이프로 넘긴다. 세로 보기 전환과 로그인 페이지 저장·복원을 제공한다.",
+      "evidence": "test/creative-tools-browser.cjs"
+    },
+    {
+      "id": "B22",
+      "phase": "P5",
+      "title": "음악·내레이션 실제 영상 합본",
+      "status": "done",
+      "acceptance": "원본 영상 소리·오리지널 음악·직접 올린 음악과 내레이션을 브라우저에서 합쳐 최대 3분 영상 파일을 만든다. 무음 영상에 실제 음성이 포함된 내보내기를 검증한다. 자동 립싱크는 미지원이다.",
+      "evidence": "test/creative-tools-browser.cjs"
+    },
+    {
+      "id": "B23",
+      "phase": "P5",
+      "title": "유료 AI 내레이션·비공개 음성",
+      "status": "done",
+      "acceptance": "별도 권리·비용 동의 후 OpenAI TTS를 비동기 요청하고 중복 요청 방지·계정별 한도·비공개 결과를 제공한다. API는 모의 공급자로 검증했다.",
+      "evidence": "test/studio-audio.test.mjs"
+    },
+    {
+      "id": "B24",
+      "phase": "P5",
+      "title": "실제 내레이션 품질·대사 연기 검증",
+      "status": "verify",
+      "acceptance": "실제 원고의 한국어 발음·연기·속도·비용과 음량을 작가가 확인한다. 여러 인물 대사 자동 연기·립싱크는 후속 단계다.",
+      "dependency": "운영자 음성 API 권한·잔액·실제 음성 품질 검수"
     }
   ]
 }
