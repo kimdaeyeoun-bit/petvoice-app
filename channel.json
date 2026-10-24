@@ -1,0 +1,10 @@
+{
+  "release": {
+    "version": 2026102401,
+    "url": "https://raw.githubusercontent.com/kimdaeyeoun-bit/petvoice-app/family-ledger-updates/releases/2026102401/FamilyLedger-Update.zip",
+    "sha256": "e5c2ae5017ae163bed1477ad01f706e1d16f878b0cc45cbe8f897e70377e88ea",
+    "apkUrl": "https://raw.githubusercontent.com/kimdaeyeoun-bit/petvoice-app/family-ledger-updates/releases/2026102401/FamilyLedger-AutoSMS-v2.2.apk",
+    "apkSha256": "5c15710bd7bfece0a4d13395efed573b6d82affbb1d927caa3bc209bdf4c4ed1"
+  },
+  "signature": "1PDiBLR07k5xFViL8eKOPe7ni7klMWSXG/W+5D9RIJvw1FVR8ZtPmZP4/yxrPkPcAzFbLHaQfpV1cCxbKvNWjY/q/0bMoFpjXYHWJAplOtCg8WpixJHVRMqIqPrDFQaDdjDQGi4p/rflJYbCF8eZWkm0OyJpRg5Bdjf3CglOGEO8NleXsSQhVlrcbCXPHfAf+4aKGdjQv57bK40VUIirKbNNEFhzk84Qzf+I8jGT0abVTWNJHYujH7wrMlNQXvyOFxVfYaW25KaZMkNhJEQTejWEH4Y7EqfUIGnqymM2SiFi1CiLnaoIx7roKsPSFETaP/vJIUorOg8BCR/iH4gfuvrTsxrtHgFwotqVuGl+25lEi5wszH1U7sa48CRebU1jB/U+ku+puwT+tuTtrD6Js/N9CazcLXTLJjcpqaFpv5Auq4xYtkwcGH2EV+8stXwIXafo7yQcZRlJ+FJstgGbqLCTGZpBlw8VW/xn4OpB1y3ZkVaUXKn9bVpPk91Mfz3K"
+}
